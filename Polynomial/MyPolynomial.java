@@ -1,5 +1,10 @@
 package com.MyProg.Polynomial;
 
+import com.MyProg.figure.Circle;
+
+import java.util.Arrays;
+import java.util.Objects;
+
 public class MyPolynomial {
     private double[] coeffs;
 
@@ -73,5 +78,21 @@ public class MyPolynomial {
             }
         }
         return new MyPolynomial(mas);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        MyPolynomial mp = (MyPolynomial) o;
+        return Arrays.equals(getCoeffs(),mp.getCoeffs());
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31*result + Arrays.hashCode(coeffs);
+
+        return result;
     }
 }

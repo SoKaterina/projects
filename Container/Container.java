@@ -1,6 +1,7 @@
 package com.MyProg.Container;
 
 import com.MyProg.Ball.Ball;
+import com.MyProg.Complex.MyComplex;
 
 public class Container {
     private int x1;
@@ -41,5 +42,24 @@ public class Container {
 
     public String toString(){
         return "Container[("+x1+","+y1+"),("+x2+","+y2+")]";
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Container c = (Container) o;
+        return getX() == c.getX() && getY() == c.getY() && getX()-getWidth() == c.getX()-c.getWidth() && getY()-getHeight() == c.getY()-c.getHeight();
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31*result + x1;
+        result = 31*result + y1;
+        result = 31*result + x2;
+        result = 31*result + y2;
+
+        return result;
     }
 }

@@ -1,5 +1,7 @@
 package com.MyProg.Point;
 
+import com.MyProg.figure.Rectangle;
+
 public class MyPoint {
     private int x = 0;
     private int y = 0;
@@ -54,5 +56,22 @@ public class MyPoint {
     public double distance(){
         double XY = Math.sqrt(Math.pow(this.x,2)+Math.pow(this.y,2));
         return XY;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        MyPoint c = (MyPoint) o;
+        return getX() == c.getX() && getY() == c.getY();
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31*result + x;
+        result = 31*result + y;
+
+        return result;
     }
 }

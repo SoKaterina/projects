@@ -1,5 +1,9 @@
 package com.MyProg.BookClass.Author;
 
+import com.MyProg.Ball.Ball;
+
+import java.util.Objects;
+
 public class Author {
     private String name;
     private String email;
@@ -17,5 +21,26 @@ public class Author {
 
     public String getName() {
         return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(getName(),author.getName()) && Objects.equals(getEmail(),author.getEmail()) && Objects.equals(getGender(),author.getGender());
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(getName(),getEmail(),getGender());
     }
 }

@@ -42,4 +42,22 @@ public class Triangle {
         }
         return type;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Triangle c = (Triangle) o;
+        return v1.equals(c.v1) && v2.equals(c.v2) && v3.equals(c.v3);
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31*result + v1.hashCode();
+        result = 31*result + v2.hashCode();
+        result = 31*result + v3.hashCode();
+
+        return result;
+    }
 }

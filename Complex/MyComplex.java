@@ -1,5 +1,10 @@
 package com.MyProg.Complex;
 
+import com.MyProg.BookClass.Book;
+
+import java.util.Arrays;
+import java.util.Objects;
+
 public class MyComplex {
     private double real = 0.0;
     private double imag = 0.0;
@@ -120,5 +125,22 @@ public class MyComplex {
 
     public MyComplex conjugate(){
         return new MyComplex(real, -imag);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        MyComplex c = (MyComplex) o;
+        return getReal() == c.getReal() && getImag() == c.getImag();
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31*result + Long.valueOf(Double.doubleToLongBits(real)).hashCode();
+        result = 31*result + Long.valueOf(Double.doubleToLongBits(imag)).hashCode();
+
+        return result;
     }
 }

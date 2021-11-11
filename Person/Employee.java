@@ -1,5 +1,9 @@
 package com.MyProg.Person;
 
+import com.MyProg.figure.Triangle;
+
+import java.util.Objects;
+
 public class Employee {
     private int id;
     private String firstName;
@@ -51,4 +55,22 @@ public class Employee {
         return "Employee {id = "+id+", name = "+this.getName()+", salary = "+salary+"}";
     }
 
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Employee c = (Employee) o;
+        return getId() == c.getId() && getSalary() == c.getSalary() && Objects.equals(getFirstName(),c.getFirstName()) && Objects.equals(getLastName(),c.getLastName());
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31*result + id;
+        result = 31*result + salary;
+        result = 31*result + Objects.hashCode(firstName);
+        result = 31*result + Objects.hashCode(lastName);
+
+        return result;
+    }
 }
