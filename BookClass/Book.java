@@ -1,6 +1,6 @@
-package com.MyProg.BookClass;
+package com.MyProg.bookclass;
 
-import com.MyProg.BookClass.Author.Author;
+import com.MyProg.bookclass.author.Author;
 
 import java.util.Arrays;
 import java.util.Objects;

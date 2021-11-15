@@ -1,4 +1,4 @@
-package com.MyProg.Ball;
+package com.MyProg.ball;
 
 public class Ball {
     private float x;

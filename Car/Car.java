@@ -1,4 +1,4 @@
-package com.MyProg.Car;
+package com.MyProg.car;
 
 public class Car {
     private float x;

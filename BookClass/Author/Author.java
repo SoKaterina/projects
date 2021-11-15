@@ -1,6 +1,4 @@
-package com.MyProg.BookClass.Author;
-
-import com.MyProg.Ball.Ball;
+package com.MyProg.bookclass.author;
 
 import java.util.Objects;
 
